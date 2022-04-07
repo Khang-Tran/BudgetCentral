@@ -1,0 +1,39 @@
+<div class="add-item-form-container">
+    <section class="add-income-section">
+        <!-- Form 1 -->
+        <form class="flex-form" #addIncomeForm="ngForm" (ngSubmit)="onAddIncomeButtonSubmit(addIncomeForm)">
+            <div class="form-group-income">
+                <!-- Income label -->
+                <label for="budgetIncome">Income</label>
+                <!-- Income input box -->
+                <input #income type="number" id="budgetIncome" name="budgetIncome" placeholder="Income Amount"
+                    [(ngModel)]="user.budgetIncome" class="form-control" required>
+                <!-- Add income button -->
+                <button type="button" type="submit" name="addIncomeButton" (click)="updateIncome(user)" [disabled]="!addIncomeForm.valid">
+                    <p>Save</p>
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <hr>
+
+    <section class="add-expense-section">
+        <!-- Form 2 -->
+        <form class="flex-form" #budgetForm="ngForm" (ngSubmit)="onAddExpenseButtonSubmit(budgetForm)">
+            <div class="form-group-expense">
+                <!-- Expense category amount input box -->
+                <input #categoryName type="string" id="categoryName" name="categoryName" placeholder="Expense Category"
+                    [(ngModel)]="category.categoryName" class="form-control" required>
+                <!-- Expense category amount input box -->
+                <input #budgetTotal type="number" id="budgetTotal" name="budgetTotal" placeholder="Expense Amount"
+                    [(ngModel)]="category.budgetTotal" class="form-control" required>
+                <!-- Add expense category button -->
+                <button type="button" type="submit" (click)="createBudget(category)" [disabled]="!budgetForm.valid">
+                    <p>Add Expense</p>
+                </button>
+            </div>
+        </form>
+    </section>
+
+</div>
